@@ -4,10 +4,16 @@ var precss       = require('precss');
 var autoprefixer = require('autoprefixer');
 
 module.exports = {
-	entry: ['./src/index.js'],
+	entry: ['webpack/hot/only-dev-server',
+			'webpack-dev-server/client?http://0.0.0.0:8080',
+			'./src/index.js'],
 	output: { path:__dirname + '/public', filename: 'bundle.js'},
 	module: {
 		loaders: [
+			{	test: /\.jsx?$/, 
+				loader: 'react-hot', 
+				include: path.join(__dirname, 'src') 
+			},
 			{
 				test: /.jsx?$/,
 				loader: 'babel-loader',

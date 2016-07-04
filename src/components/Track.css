@@ -1,0 +1,49 @@
+.track-wrapper {
+	text-align: center;
+	display: inline-block;
+}
+
+.track {
+	padding: 20px;
+	text-align: center;
+	background-color: transparent;
+}
+
+.artwork {
+	border-radius: 50%;
+	height: 300;
+	width: 300;
+	opacity: 0.8;
+	transition: all 0.3s ease;
+	position: absolute;
+}
+
+.artwork:hover {
+	-webkit-box-shadow: 2px 4px 5px 0px rgba(0,0,0,0.6);
+	-moz-box-shadow: 2px 4px 5px 0px rgba(0,0,0,0.6);
+	box-shadow: 2px 4px 5px 0px rgba(0,0,0,0.6);
+	opacity: 1.0;
+	transition: all 0.3s ease;
+
+	.waveform {
+		opacity: 0.8;
+		transition: all 0.8s ease;
+	}
+}
+
+.text {
+	background: rgba(0,0,0,0.2);
+	color: #f8f8f8;
+
+
+	/* center vertically */
+	position: relative;
+  	top: 50%;
+  	transform: translateY(-50%);
+}
+
+.waveform {
+	position: relative;
+  	top: 35%;
+  	opacity: 0.0;
+}

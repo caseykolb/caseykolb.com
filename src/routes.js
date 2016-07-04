@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import App from './components/App';
-import Menu from './components/Menu';
-import Bio from './components/Bio';
-import Music from './components/Music';
+import App from './pages/App';
+import Menu from './pages/Menu';
+import Bio from './pages/Bio';
+import Music from './pages/Music';
 
 
 const routes = (
