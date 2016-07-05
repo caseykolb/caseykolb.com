@@ -7,16 +7,19 @@
 	padding: 20px;
 	text-align: center;
 	background-color: transparent;
-	margin: 0 !important
+	width: 300;
+	height: 300
 }
 
 .artwork {
 	border-radius: 50%;
-	height: 300;
-	width: 300;
+	height: 230;
+	width: 230;
 	opacity: 0.8;
 	transition: all 0.3s ease;
 	position: absolute;
+	margin-left: 35;
+	margin-top: 35;
 }
 
 .artwork:hover {

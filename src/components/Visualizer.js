@@ -7,7 +7,7 @@ class Visualizer extends React.Component {
 		super(props)
 
 		this.client_id = '4b5c0ba7c1c975229158789980bcd8b0'
-		this.radius = this.props.width / 2;
+		this.radius = this.props.width / 2 - 35; // adjust radius to fit inside canvas
 		this.centerX = this.props.width / 2;
 		this.centerY = this.props.height / 2;
 	}
