@@ -7,17 +7,16 @@ class Track extends React.Component {
 	constructor(props) {
 		super(props)
 
-		this.player = null;
-
 		this.state = {
-			playing: false,
+			player: null,
+			playing: false
 		}
 	}
 
 	componentWillMount() {
-		SC.stream('/tracks/' + this.props.data.id).then((player) => {
-			this.player = player;
-		})
+		/*SC.stream('/tracks/' + this.props.data.id).then((player) => {
+			this.setState({ player: player })
+		})*/
 	}
 
 	transformArtworkURL() {
@@ -26,18 +25,19 @@ class Track extends React.Component {
 	}
 
 	play() {
-		if (this.player != null && !this.state.playing) {
-			console.log('play')
+		/*if (this.state.player != null && !this.state.playing) {
 			this.setState({ playing: true })
-			this.player.play();
-		}
+			this.state.player.play();
+		}*/
+		this.setState({ playing: true })
 	}
 
 	stop() {
-		if (this.player != null) {
+		/*if (this.state.player != null) {
 			this.setState({ playing: false })
-			this.player.pause();
-		}
+			this.state.player.pause();
+		}*/
+		this.setState({ playing: false })
 	}
 
   	render() {
@@ -58,9 +58,9 @@ class Track extends React.Component {
 	                <Visualizer 
 	                	width={300} 
 	                	height={300} 
-	                	player={this.player} 
-	                	playing={this.state.playing}
-	                	source={this.props.data.stream_url} />
+	                	source={this.props.data.stream_url} 
+	                	artwork={this.props.data.artwork_url}
+	                	playing={this.state.playing} />
 	        	</Col>
 	        </div>
 	    	)
