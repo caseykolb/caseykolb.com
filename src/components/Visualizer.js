@@ -26,7 +26,12 @@ class Visualizer extends React.Component {
         artwork.crossOrigin = "Anonymous";
         artwork.src = this.props.artwork;
         artwork.onload = function() {
-			this.palette = colorThief.getPalette(artwork, 8);
+			var palette = colorThief.getPalette(artwork, 8);
+
+			// generate random colors for each bin in the analyzer minus 40
+			this.randomColors = []
+			for (var i = 0; i < 88; i++)
+				this.randomColors[i] = palette[Math.floor(Math.random() * 7)];
 		}.bind(this)
 	}
 
@@ -67,13 +72,13 @@ class Visualizer extends React.Component {
 
 	drawBar(freqData, index) {
 		// map indices to radians -1 to 1
-		var radian = Math.PI * (index / (this.analyzer.frequencyBinCount - 40)) * 2;
-		var color = this.palette[Math.floor(Math.random() * 7)]; 
+		var radian = Math.PI * (index / (this.analyzer.frequencyBinCount - 40)) * 2; 
 
 		var x = this.centerX + (this.radius * Math.cos(radian));
 		var y = this.centerY + (this.radius * Math.sin(radian));
 		var w = freqData / 8 + 2;
 		var h = 16;
+		var color = this.randomColors[index]
 
 		var bar = new createjs.Shape(bar);
 		bar.graphics.beginFill('rgba(' + color[0] + ',' + color[1] + ',' + color[2] + ', 1.0)').drawRect(0, 0, w, h)
